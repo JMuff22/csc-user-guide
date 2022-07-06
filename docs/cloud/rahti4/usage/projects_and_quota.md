@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/usage/projects_and_quota/)
-
 # Projects and quota
 
 ## OpenShift projects and CSC computing projects
@@ -22,10 +14,8 @@
 
 All projects in OpenShift must be mapped to a CSC computing project. This
 mapping is used to determine which CSC computing project a given resource
-belongs to for billing and other purposes. If you only have one CSC computing
-project with access to Rahti, this mapping will be done 
-automatically. If you have more than one CSC computing project, you need to
-specify which of them to use. You can do so by entering `csc_project:` followed
+belongs to for billing and other purposes. You need to
+specify which of them to use. You have to specify which project to map by entering `csc_project:` followed
 by the name or number of your CSC computing project in the _Description_ field
 when creating a new project in OpenShift. You can also enter other text in the
 description field if you want to have a human-readable description for
@@ -56,15 +46,11 @@ If you would like to know which CSC computing projects you are a member of, you
 can view a list in the [My Projects
 tool](https://my.csc.fi/myProjects) of MyCSC. You can also set a default 
 billing project by going to [Your Profile page](https://my.csc.fi/myProfile). 
-Select the project you would like to have as your default billing project and
-click on "Save". After doing this, the default billing project
-will be selected as the billing project for OpenShift projects if you do not
-explicitly specify one.
 
 If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](/cloud/rahti/usage/cli). For example, if your OpenShift project is called
+instructions ](../cli). For example, if your OpenShift project is called
 *my-openshift-project*, you would run:
 
 ```bash
@@ -109,7 +95,7 @@ Unfortunately, this information is not available via a web interface yet.
 Click the blue "Create Project" button to create a project, and you will be
 presented with the following view:
 
-![OpenShift new project dialog](img/new_project_dialog_3.7.png)
+![OpenShift new project dialog](img/new_project_dialog_4.png)
 
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
@@ -117,6 +103,8 @@ in the system.
 1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
 
 > csc_project: XXXXXXX
+
+![OpenShift Create Project](img/create_project_dialog_4.png)
 
 See the section about [accounts](/accounts/).
 
@@ -141,18 +129,19 @@ own quota for the following resources:
 
 | Resource                         | Default |
 |----------------------------------|---------|
-| Pods                             | 20      |
-| Virtual cores per pod            | 2       |
-| Virtual cores per container      | 2       |
-| RAM per pod                      | 8 GiB   |
-| RAM per container                | 8 GiB   |
-| Storage                          | 50 GiB  |
-| Number of image streams          | 10      |
+| Pods                             | ??      |
+| Virtual cores per pod            | 4       |
+| Virtual cores per container      | 4       |
+| RAM per pod                      | 16 GiB  |
+| RAM per container                | 16 GiB  |
+| Storage                          | 100 GiB |
+| Number of image streams          | 20      |
 | Size of each registry images     | 5 GiB   |
 
 You can find the resource usage and quota of a project in the project view in
-the web interface under Resources -> Quota. Alternatively, you can use the oc
-command line tool:
+the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
+
+Alternatively, you can use the oc command line tool:
 
 ```bash
 oc describe quota
@@ -172,26 +161,15 @@ give access to projects you have created to other users and groups in the system
 You can give e.g. full admin, basic user, edit or read only access to other
 users and groups in the system for collaboration.
 
-You can edit project memberships in the web interface via Resources ->
-Membership. You can either give access rights to individual users or groups by
-selecting either the _Users_ or _Groups_ tab and clicking _Edit Membership_ in the
-top right corner.
+You can edit project memberships in the web interface via **User Management ->
+RoleBindings**, in the `Administrator` menu. You can either give access rights to individual users, groups or Service Accounts by selecting either the _Users_,  _Groups_ or ServiceAccount.
+
+![Create Role Binding](img/Create_role_binding.png)
 
 Note that it is important to use correct usernames when sharing projects
 with others. OpenShift allows you to freely enter any username and will not notify
 you for having entered a non-existent username. Usernames are also case-sensitive.
-You can find out your username in OpenShift via either the
-web interface or the command line:
-
-1. In the web interface, click the question mark symbol in the top bar and
-   select "Command Line Tools". You can find your username above the text box
-   that has the login command.
-2. If you have an active command line session, you can use the command `oc whoami`.
-
-If you would like to share a project you have created with members of the same CSC
-computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
-Membership_, and entering the name of the computing project and a role in the
-dropdown menu on the right for the members of that computing project.
+You can find out your username in OpenShift via the command line, by using the command `oc whoami`.
 
 ## Deleting a project
 
