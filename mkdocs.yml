@@ -81,7 +81,7 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-       - Rahti4 migration: cloud/rahti/rahtiv2-migration.md
+       - Rahti4 migration: cloud/rahti/rahti4-migration.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
@@ -125,7 +125,7 @@ nav:
          - Getting access: cloud/rahti4/access.md
          - Using the web interface: cloud/rahti4/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti4/usage/cli.md
-       - Rahti4 migration: cloud/rahti4/rahtiv2-migration.md
+       - Rahti4 migration: cloud/rahti4/rahti4-migration.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
@@ -169,7 +169,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
-            - API Access to Pouta: cloud/pouta/api-access.md  
+            - API Access to Pouta: cloud/pouta/api-access.md
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md
@@ -273,7 +273,7 @@ extra_javascript:
   - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
   - 'assets/javascripts/cookie_consent.js'
   - "https://unpkg.com/mermaid/dist/mermaid.min.js"
-    
+
 
 markdown_extensions:
   - toc:
