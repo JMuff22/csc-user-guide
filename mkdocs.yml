@@ -71,6 +71,16 @@ nav:
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
+  - Quantum Computing:
+    - Overview: quantum-computing/overview.md
+    - Kvasi QLM:
+        - Accessing Kvasi: quantum-computing/kvasi/kvasi.md
+        - Kvasi Billing: quantum-computing/kvasi/kvasi-billing.md
+    - Helmi:
+        - Technical details: quantum-computing/helmi/helmi.md
+        - Accessing Helmi: quantum-computing/helmi/helmi-accounts.md
+        - Running on Helmi: quantum-computing/helmi/running-on-helmi.md
+        - Getting started with Helmi: quantum-computing/helmi/helmi_quick.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
